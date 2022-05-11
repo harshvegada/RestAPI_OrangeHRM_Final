@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" thread-count="4" parallel="classes">
+    <listeners>
+        <listener class-name="com.qa.tc.testngListeners.ITestResultImpl"></listener>
+    </listeners>
+    <test name="Test">
+        <classes>
+            <class name="com.qa.tc.Employee_Detail_Test"/>
+            <class name="com.qa.tc.Job_Title_Test"/>
+        </classes>
+    </test>
+</suite>

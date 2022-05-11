@@ -1,0 +1,7 @@
+.idea
+target/
+extent-reports/
+allure-results/
+allure-reports/
+.DS_Store
+test-output

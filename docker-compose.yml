@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  allure:
+    image: "frankescobar/allure-docker-service"
+    environment:
+      CHECK_RESULTS_EVERY_SECONDS: NONE
+      KEEP_HISTORY: 1
+      KEEP_HISTORY_LATEST: 5
+      SECURITY_USER: "my_username"
+      SECURITY_PASS: "my_password"
+      SECURITY_VIEWER_USER: "view_user"
+      SECURITY_VIEWER_PASS: "view_pass"
+      SECURITY_ENABLED: 1
+      EMAILABLE_REPORT_TITLE: "Automation Title"
+#      SERVER_URL: "https://allure.connectedproduction.net//allure-api"
+    ports:
+      - "5050:5050"
+    volumes:
+      - ./allure-results:/app/allure-results
+      - ./allure-reports:/app/default-reports
+
+  allure-ui:
+    image: "frankescobar/allure-docker-service-ui"
+    environment:
+      ALLURE_DOCKER_PUBLIC_API_URL: "http://localhost:5050"
+      ALLURE_DOCKER_PUBLIC_API_URL_PREFIX: ""
+    ports:
+      - "5252:5252"
